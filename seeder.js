@@ -1,13 +1,11 @@
 const seeder = (connectionString, fileDirectory, iOrd, dataModel)=>{
-
     //============================
     const fs = require("fs");
     const mongoose = require("mongoose");
     //============================
 
     //Connect to DB
-    const connectDB = async ()=>{
-        
+    const connectDB = async ()=>{ 
         try{
             const conn = await mongoose.connect(connectionString, {
                 useNewUrlParser: true,
@@ -15,7 +13,6 @@ const seeder = (connectionString, fileDirectory, iOrd, dataModel)=>{
                 useFindAndModify: false,
                 useUnifiedTopology: true
             });
-            console.log("I am here")
             console.log(`MongoDB Connected: ${conn.connection.host}`.bgGrey);
         }catch(err){
             console.error(`MONGODB NOT CONNECTED ${err}`.red);
